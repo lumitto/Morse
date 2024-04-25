@@ -1,4 +1,5 @@
 import json
+# Test comment
 
 
 def load_alphabet_json(file_path: str):
