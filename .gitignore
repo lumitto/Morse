@@ -1,5 +1,8 @@
 __pycache__/
 .venv/
 .idea/
-test.py
-alpha-raw.txt
+dist/
+build/
+main.spec
+main.py
+data/alpha-raw.txt

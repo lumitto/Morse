@@ -1,5 +1,4 @@
 import json
-# Test comment
 
 
 def load_alphabet_json(file_path: str):
@@ -28,32 +27,43 @@ def create_alpha_dict(file_path: str):  # Alternative
 
 class Morse:
     """ Responsible for processing and storing text and morse values for one string. """
-    morse_alphabet = load_alphabet_json("morse-alphabet.json")
+    morse_alphabet = load_alphabet_json("D:\\Python\\Problems & Projects\\Portfolio Projects Alpha\\Morse\\data"
+                                        "\\morse-alphabet.json")
 
     def __init__(self):
-        self.morse_val_bp = ""  # TODO Remove. Add single converting method.
         self.morse_val = ""
         self.text_val = ""
         self.morse_separator = " "
 
-    def set_morse(self, morse):
+    def set_get_morse(self, morse):
         if self.morse_val != morse:
             self.morse_val = morse
             self.to_text()
+            return self.text_val
+        else:
+            return self.text_val
 
-    def set_text(self, text):
+    def set_get_text(self, text):
         if self.text_val != text:
             self.text_val = text
             self.to_morse()
-
-    def get_morse_bp(self):
-        return self.morse_val_bp
+            return self.morse_val
+        else:
+            return self.morse_val
 
     def get_morse(self):
         return self.morse_val
 
     def get_text(self):
         return self.text_val
+
+    def convert_bp(self):
+        self.morse_val = self.morse_val.replace(".", "•")
+        return self.morse_val
+
+    def convert_point(self):
+        self.morse_val = self.morse_val.replace("•", ".")
+        return self.morse_val
 
     def to_morse(self):
         morse = self.get_text().split(" ")
@@ -72,7 +82,6 @@ class Morse:
             text += word_
 
         self.morse_val = text[:-3]
-        self.morse_val_bp = self.morse_val.replace(".", "•")
 
     def to_text(self):
         morse = self.get_morse().split(self.morse_separator)
