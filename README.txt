@@ -1,1 +1,0 @@
-EXE File icon by icons8.com | Link - https://icons8.com/icon/10250/console
